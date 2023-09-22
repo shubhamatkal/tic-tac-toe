@@ -1,8 +1,7 @@
 from art import welcome_art
 import time
+import random
 
-
-horizontal_line = "-----------"
 
 
 def greet_users():
@@ -11,6 +10,17 @@ def greet_users():
     print(welcome_art)
     time.sleep(1)
     print("Welcome to tic-tac-toe game , pls note that there must be two players")
+
+def playground(x_place, o_place):
+    print(f" {'X' if x_place[0] ==1 else 'O'if o_place[0]==1 else ' '} | {'X' if x_place[1] ==1 else 'O'if o_place[1]==1 else ' '} | {'X' if x_place[2] ==1 else 'O'if o_place[2]==1 else ' '} ")
+    print("---|---|---")
+    print(f" {'X' if x_place[3] ==1 else 'O'if o_place[3]==1 else ' '} | {'X' if x_place[4] ==1 else 'O'if o_place[4]==1 else ' '} | {'X' if x_place[5] ==1 else 'O'if o_place[5]==1 else ' '} ")
+    print("---|---|---")
+    print(f" {'X' if x_place[6] ==1 else 'O'if o_place[6]==1 else ' '} | {'X' if x_place[7] ==1 else 'O'if o_place[7]==1 else ' '} | {'X' if x_place[8] ==1 else 'O'if o_place[8]==1 else ' '} ")
+
+
+
+
 greet_users()
 USER_X_NAME = str(input("What is the name of user X ? ")).title()
 USER_O_NAME = str(input("What is the name of user O ?")).title()
@@ -33,10 +43,28 @@ else:
 
 if is_o_ready == "O" and is_x_ready == "X":
     game_is_on = True
+x_place = [0,0,0,0,0,0,0,0,0]
+o_place = [0,0,0,0,0,0,0,0,0]
 
-if game_is_on:
-    print("playground")
-    print(horizontal_line)
-    print("playground")
-    print(horizontal_line)
-    print("playground")
+#tossing the first turn
+print("Lets toss the coin and check whos turn is first!")
+time.sleep(2)
+print("Coing is flipping...")
+time.sleep(3)
+toss_output = random.randint(0,1)
+
+if toss_output == 0:
+    print(f"Hey {USER_X_NAME} its your turn !")
+    TURN = "X"
+else:
+    print(f"Hey {USER_O_NAME} its your turn")
+    TURN = "O"
+
+
+
+
+
+while game_is_on == True:
+    playground(x_place, o_place)
+    break
+
