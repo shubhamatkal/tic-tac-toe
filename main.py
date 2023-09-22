@@ -2,6 +2,9 @@ from art import welcome_art
 import time
 
 
+horizontal_line = "-----------"
+
+
 def greet_users():
     print("Please wait...")
     time.sleep(2)
@@ -26,3 +29,14 @@ if is_x_ready == "X":
             f"user {USER_O_NAME} is not ready to play the game is aborted, {USER_X_NAME} pls tell your friend to be ready if you want to play the game , or find any other friend ;)")
 else:
     print(f"user {USER_X_NAME} is not ready to play the game is aborted, {USER_O_NAME} pls tell your friend to be ready if you want to play the game , or find any other friend ;)")
+
+
+if is_o_ready == "O" and is_x_ready == "X":
+    game_is_on = True
+
+if game_is_on:
+    print("playground")
+    print(horizontal_line)
+    print("playground")
+    print(horizontal_line)
+    print("playground")
