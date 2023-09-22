@@ -43,8 +43,8 @@ else:
 
 if is_o_ready == "O" and is_x_ready == "X":
     game_is_on = True
-x_place = [0,0,0,0,0,0,0,0,0]
-o_place = [0,0,0,0,0,0,0,0,0]
+x_place_list = [0,0,0,0,0,0,0,0,0]
+o_place_list = [0,0,0,0,0,0,0,0,0]
 
 #tossing the first turn
 print("Lets toss the coin and check whos turn is first!")
@@ -63,8 +63,16 @@ else:
 
 
 
-
+print("INSTRUCTIONS:\n 1. The boxes are designed serially,\n 2.like 1,2,3,\n       4,5,6,\n       7,8,9\n3. you have to type number where you want to put your mark")
 while game_is_on == True:
-    playground(x_place, o_place)
-    break
+    playground(x_place=x_place_list,o_place= o_place_list)
+    if TURN == "X":
+        x_mark = int(input(f"{USER_X_NAME} where X ?"))
+        x_place_list[x_mark-1] = 1
+        TURN = "O"
+    else:
+        o_mark = int(input(f"{USER_O_NAME} where O ?"))
+        o_place_list[o_mark - 1] = 1
+        TURN = "X"
+
 
