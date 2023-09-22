@@ -68,11 +68,25 @@ while game_is_on == True:
     playground(x_place=x_place_list,o_place= o_place_list)
     if TURN == "X":
         x_mark = int(input(f"{USER_X_NAME} where X ?"))
-        x_place_list[x_mark-1] = 1
+        if x_place_list[x_mark-1] == 0 and o_place_list[x_mark-1] == 0:
+            x_place_list[x_mark-1] = 1
+        else:
+            print("This place already contains mark, pls try again")
+            continue
         TURN = "O"
     else:
         o_mark = int(input(f"{USER_O_NAME} where O ?"))
-        o_place_list[o_mark - 1] = 1
+        if o_place_list[o_mark-1] == 0 and x_place_list[x_mark-1] == 0:
+            o_place_list[o_mark-1] = 1
+        else:
+            print("This place already contains mark, pls try again")
+            continue
         TURN = "X"
+
+
+    #last game ending logic
+    total_marks = sum(x_place_list)+sum(o_place_list)
+    if total_marks >= 9:
+        game_is_on = False
 
 
