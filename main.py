@@ -26,4 +26,3 @@ if is_x_ready == "X":
             f"user {USER_O_NAME} is not ready to play the game is aborted, {USER_X_NAME} pls tell your friend to be ready if you want to play the game , or find any other friend ;)")
 else:
     print(f"user {USER_X_NAME} is not ready to play the game is aborted, {USER_O_NAME} pls tell your friend to be ready if you want to play the game , or find any other friend ;)")
-
