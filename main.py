@@ -18,6 +18,16 @@ def playground(x_place, o_place):
     print("---|---|---")
     print(f" {'X' if x_place[6] ==1 else 'O'if o_place[6]==1 else ' '} | {'X' if x_place[7] ==1 else 'O'if o_place[7]==1 else ' '} | {'X' if x_place[8] ==1 else 'O'if o_place[8]==1 else ' '} ")
 
+def checkwinner(x_place, o_place):
+    wins = [[0,1,2],[3,4,5],[6,7,8],[0,3,6],[1,4,7],[2,5,8],[0,4,8],[2,4,6]]
+    for win in wins:
+        if x_place[win[0]]+x_place[win[1]]+x_place[win[2]] == 3:
+            return 1
+        if o_place[win[0]]+o_place[win[1]]+o_place[win[2]] == 3:
+            return 0
+    return -1
+
+
 
 
 
@@ -76,7 +86,7 @@ while game_is_on == True:
         TURN = "O"
     else:
         o_mark = int(input(f"{USER_O_NAME} where O ?"))
-        if o_place_list[o_mark-1] == 0 and x_place_list[x_mark-1] == 0:
+        if o_place_list[o_mark-1] == 0 and x_place_list[o_mark-1] == 0:
             o_place_list[o_mark-1] = 1
         else:
             print("This place already contains mark, pls try again")
@@ -85,8 +95,20 @@ while game_is_on == True:
 
 
     #last game ending logic
+    cwin = checkwinner(x_place = x_place_list, o_place=o_place_list)
+    if cwin == 1:
+        playground(x_place=x_place_list, o_place=o_place_list)
+        print(f"Hurray! {USER_X_NAME} is the winner, The game is ended")
+        break
+    if cwin == 0:
+        playground(x_place=x_place_list, o_place=o_place_list)
+        print(f"Hurray! {USER_O_NAME} is the winner, The game is ended")
+        break
+
     total_marks = sum(x_place_list)+sum(o_place_list)
     if total_marks >= 9:
+        print("Game is ENDED, and the result is DRAW :-)")
+        playground(x_place=x_place_list, o_place=o_place_list)
         game_is_on = False
 
 
